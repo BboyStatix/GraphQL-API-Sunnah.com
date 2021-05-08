@@ -20,7 +20,7 @@ const typeDefs = gql`
     HISN
   }
 
-  type CollectionDescription {
+  type CollectionDetail {
     lang: String
     title: String
     shortIntro: String
@@ -30,12 +30,12 @@ const typeDefs = gql`
     name: String
     hasBooks: Boolean
     hasChapters: Boolean
-    collection: [CollectionDescription]
+    collection: [CollectionDetail]
     totalHadith: Int
     totalAvailableHadith: Int
   }
 
-  type ChapterInfo {
+  type ChapterDetail {
     lang: String
     chapterNumber: String
     chapterTitle: String
@@ -46,7 +46,7 @@ const typeDefs = gql`
   type Chapter {
     bookNumber: String
     chapterId: String
-    chapter: [ChapterInfo]
+    chapter: [ChapterDetail]
   }
 
   type Query {
