@@ -19,7 +19,3 @@ To run the app
 ```
 npm start
 ```
-
-# Important Note
-
-Note that I am not affiliated with Sunnah.com in any way. Any work here is solely my own.
