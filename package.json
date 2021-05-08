@@ -1,0 +1,16 @@
+{
+  "name": "graphql-api-sunnah.com",
+  "version": "1.0.0",
+  "description": "Simple GraphQL layer on top of Sunnah.com's REST API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BboyStatix/GraphQL-API-Sunnah.com.git"
+  },
+  "author": "BboyStatix",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BboyStatix/GraphQL-API-Sunnah.com/issues"
+  },
+  "homepage": "https://github.com/BboyStatix/GraphQL-API-Sunnah.com#readme"
+}
