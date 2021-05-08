@@ -9,6 +9,10 @@ class HadithApi extends RESTDataSource {
   willSendRequest(request) {
     request.headers.set("x-api-key", process.env.X_API_KEY);
   }
+
+  async getCollections() {
+    return this.get("collections");
+  }
 }
 
 module.exports = HadithApi;
