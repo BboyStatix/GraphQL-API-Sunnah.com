@@ -130,10 +130,11 @@ const resolvers = {
       return response.data;
     },
     Books: async (_, { collectionName }, { dataSources }) => {
-      return (await dataSources.hadithApi.getBooks(collectionName)).data;
+      const response = await dataSources.hadithApi.getBooks(collectionName);
+      return response.data;
     },
     Book: async (_, { collectionName, bookNumber }, { dataSources }) => {
-      return await dataSources.hadithApi.getBook(collectionName, bookNumber);
+      return dataSources.hadithApi.getBook(collectionName, bookNumber);
     },
     getHadithByCollectionAndHadithNumber: async (
       _,
