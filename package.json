@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Simple GraphQL layer on top of Sunnah.com's REST API",
   "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BboyStatix/GraphQL-API-Sunnah.com.git"
@@ -12,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/BboyStatix/GraphQL-API-Sunnah.com/issues"
   },
-  "homepage": "https://github.com/BboyStatix/GraphQL-API-Sunnah.com#readme"
+  "homepage": "https://github.com/BboyStatix/GraphQL-API-Sunnah.com#readme",
+  "dependencies": {
+    "apollo-server": "^2.24.0",
+    "graphql": "^15.5.0"
+  }
 }
