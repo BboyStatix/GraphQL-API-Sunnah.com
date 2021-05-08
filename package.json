@@ -4,7 +4,7 @@
   "description": "Simple GraphQL layer on top of Sunnah.com's REST API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "dependencies": {
     "apollo-datasource-rest": "^0.13.0",
     "apollo-server": "^2.24.0",
+    "dotenv": "^9.0.0",
     "graphql": "^15.5.0"
   },
   "devDependencies": {
