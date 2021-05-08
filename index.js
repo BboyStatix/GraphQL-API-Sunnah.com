@@ -94,6 +94,10 @@ const typeDefs = gql`
     ): [Hadith]
     Book(collectionName: CollectionName!, bookNumber: Int!): Book
     Books(collectionName: CollectionName!): [Book]
+    getHadithByCollectionAndHadithNumber(
+      collectionName: CollectionName!
+      hadithNumber: Int!
+    ): Hadith
   }
 `;
 
@@ -129,6 +133,16 @@ const resolvers = {
     },
     Book: async (_, { collectionName, bookNumber }, { dataSources }) => {
       return await dataSources.hadithApi.getBook(collectionName, bookNumber);
+    },
+    getHadithByCollectionAndHadithNumber: async (
+      _,
+      { collectionName, hadithNumber },
+      { dataSources }
+    ) => {
+      return dataSources.hadithApi.getHadithByCollectionAndHadithNumber(
+        collectionName,
+        hadithNumber
+      );
     },
   },
 };
