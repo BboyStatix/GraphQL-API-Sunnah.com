@@ -35,9 +35,24 @@ const typeDefs = gql`
     totalAvailableHadith: Int
   }
 
+  type ChapterInfo {
+    lang: String
+    chapterNumber: String
+    chapterTitle: String
+    intro: String
+    ending: String
+  }
+
+  type Chapter {
+    bookNumber: String
+    chapterId: String
+    chapter: [ChapterInfo]
+  }
+
   type Query {
     Collections: [Collection]
     Collection(name: CollectionName!): Collection
+    Chapters(collectionName: CollectionName!, bookNumber: Int!): [Chapter]
   }
 `;
 
@@ -49,6 +64,13 @@ const resolvers = {
     },
     Collection: async (_, { name }, { dataSources }) => {
       return dataSources.hadithApi.getCollection(name);
+    },
+    Chapters: async (_, { collectionName, bookNumber }, { dataSources }) => {
+      const response = await dataSources.hadithApi.getChapters(
+        collectionName,
+        bookNumber
+      );
+      return response.data;
     },
   },
 };
