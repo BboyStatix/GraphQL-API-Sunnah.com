@@ -71,6 +71,19 @@ const typeDefs = gql`
     hadith: [HadithInfo]
   }
 
+  type BookInfo {
+    lang: String
+    name: String
+  }
+
+  type Book {
+    bookNumber: String
+    book: [BookInfo]
+    hadithStartNumber: Int
+    hadithEndNumber: Int
+    numberOfHadith: Int
+  }
+
   type Query {
     Collections: [Collection]
     Collection(name: CollectionName!): Collection
@@ -79,6 +92,7 @@ const typeDefs = gql`
       collectionName: CollectionName!
       bookNumber: Int!
     ): [Hadith]
+    Book(collectionName: CollectionName!, bookNumber: Int!): Book
   }
 `;
 
@@ -108,6 +122,9 @@ const resolvers = {
         bookNumber
       );
       return response.data;
+    },
+    Book: async (_, { collectionName, bookNumber }, { dataSources }) => {
+      return await dataSources.hadithApi.getBook(collectionName, bookNumber);
     },
   },
 };
