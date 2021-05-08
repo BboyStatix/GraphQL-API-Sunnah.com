@@ -4,7 +4,7 @@
   "description": "Simple GraphQL layer on top of Sunnah.com's REST API",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "dependencies": {
     "apollo-server": "^2.24.0",
     "graphql": "^15.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
