@@ -49,10 +49,36 @@ const typeDefs = gql`
     chapter: [ChapterDetail]
   }
 
+  type Grade {
+    graded_by: String
+    grade: String
+  }
+
+  type HadithInfo {
+    lang: String
+    chapterNumber: String
+    chapterTitle: String
+    urn: Int
+    body: String
+    grades: [Grade]
+  }
+
+  type Hadith {
+    collection: String
+    bookNumber: String
+    chapterId: String
+    hadithNumber: String
+    hadith: [HadithInfo]
+  }
+
   type Query {
     Collections: [Collection]
     Collection(name: CollectionName!): Collection
     Chapters(collectionName: CollectionName!, bookNumber: Int!): [Chapter]
+    getHadithsByCollectionAndBookNumber(
+      collectionName: CollectionName!
+      bookNumber: Int!
+    ): [Hadith]
   }
 `;
 
@@ -67,6 +93,17 @@ const resolvers = {
     },
     Chapters: async (_, { collectionName, bookNumber }, { dataSources }) => {
       const response = await dataSources.hadithApi.getChapters(
+        collectionName,
+        bookNumber
+      );
+      return response.data;
+    },
+    getHadithsByCollectionAndBookNumber: async (
+      _,
+      { collectionName, bookNumber },
+      { dataSources }
+    ) => {
+      const response = await dataSources.hadithApi.getHadithsByCollectionAndBookNumber(
         collectionName,
         bookNumber
       );
