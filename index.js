@@ -2,6 +2,24 @@ const { ApolloServer, gql } = require("apollo-server");
 const HadithApi = require("./HadithApi");
 
 const typeDefs = gql`
+  enum CollectionName {
+    BUKHARI
+    MUSLIM
+    NASAI
+    ABUDAWUD
+    TIRMIDHI
+    MALIK
+    AHMAD
+    NAWAWI40
+    FORTY
+    RIYADUSSALIHIN
+    MISHKAT
+    ADAB
+    SHAMAIL
+    BULUGH
+    HISN
+  }
+
   type CollectionDescription {
     lang: String
     title: String
@@ -19,6 +37,7 @@ const typeDefs = gql`
 
   type Query {
     Collections: [Collection]
+    Collection(name: CollectionName!): Collection
   }
 `;
 
@@ -27,6 +46,9 @@ const resolvers = {
     Collections: async (_, __, { dataSources }) => {
       const response = await dataSources.hadithApi.getCollections();
       return response.data;
+    },
+    Collection: async (_, { name }, { dataSources }) => {
+      return dataSources.hadithApi.getCollection(name);
     },
   },
 };
