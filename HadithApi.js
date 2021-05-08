@@ -41,6 +41,10 @@ class HadithApi extends RESTDataSource {
   async getHadithByCollectionAndHadithNumber(collectionName, hadithNumber) {
     return this.get(`collections/${collectionName}/hadiths/${hadithNumber}`);
   }
+
+  async getRandomHadith() {
+    return this.get("hadiths/random");
+  }
 }
 
 module.exports = HadithApi;

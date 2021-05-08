@@ -98,6 +98,7 @@ const typeDefs = gql`
       collectionName: CollectionName!
       hadithNumber: Int!
     ): Hadith
+    getRandomHadith: Hadith
   }
 `;
 
@@ -143,6 +144,9 @@ const resolvers = {
         collectionName,
         hadithNumber
       );
+    },
+    getRandomHadith: async (_, __, { dataSources }) => {
+      return dataSources.hadithApi.getRandomHadith();
     },
   },
 };
