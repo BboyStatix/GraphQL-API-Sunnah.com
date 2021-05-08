@@ -33,6 +33,10 @@ class HadithApi extends RESTDataSource {
   async getBook(collectionName, bookNumber) {
     return this.get(`collections/${collectionName}/books/${bookNumber}`);
   }
+
+  async getBooks(collectionName) {
+    return this.get(`collections/${collectionName}/books`);
+  }
 }
 
 module.exports = HadithApi;

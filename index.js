@@ -93,6 +93,7 @@ const typeDefs = gql`
       bookNumber: Int!
     ): [Hadith]
     Book(collectionName: CollectionName!, bookNumber: Int!): Book
+    Books(collectionName: CollectionName!): [Book]
   }
 `;
 
@@ -122,6 +123,9 @@ const resolvers = {
         bookNumber
       );
       return response.data;
+    },
+    Books: async (_, { collectionName }, { dataSources }) => {
+      return (await dataSources.hadithApi.getBooks(collectionName)).data;
     },
     Book: async (_, { collectionName, bookNumber }, { dataSources }) => {
       return await dataSources.hadithApi.getBook(collectionName, bookNumber);
