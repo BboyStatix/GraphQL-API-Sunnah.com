@@ -21,3 +21,7 @@ To run the app
 ```
 npm start
 ```
+
+# Disclaimer
+
+I am not affiliated with Sunnah.com. This was just something I created over a weekend and thought would be beneficial to app developers by giving them a more declarative way of asking for the data they need.
