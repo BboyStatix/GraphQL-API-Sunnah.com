@@ -100,6 +100,12 @@ const typeDefs = gql`
       hadithNumber: Int!
     ): Hadith
     getRandomHadith: Hadith
+    getHadiths(
+      collectionName: CollectionName
+      bookNumber: Int
+      chapterId: Int
+      hadithNumber: Int
+    ): [Hadith]
     getHadithByUrn(urn: Int!): Hadith
   }
 `;

@@ -45,6 +45,9 @@ const resolvers = {
     getRandomHadith: async (_, __, { dataSources }) => {
       return dataSources.hadithApi.getRandomHadith();
     },
+    getHadiths: async (_, queryParams, { dataSources }) => {
+      return dataSources.hadithApi.getHadiths(queryParams);
+    },
     getHadithByUrn: async (_, { urn }, { dataSources }) => {
       return dataSources.hadithApi.getHadithByUrn(urn);
     },

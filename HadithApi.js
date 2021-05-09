@@ -46,6 +46,14 @@ class HadithApi extends RESTDataSource {
     return this.get("hadiths/random");
   }
 
+  async getHadiths(queryParams) {
+    const searchParams = new URLSearchParams();
+    for (const key in queryParams) {
+      searchParams.append(key, queryParams[key]);
+    }
+    return this.get("hadiths?" + searchParams.toString());
+  }
+
   async getHadithByUrn(urn) {
     return this.get(`hadiths/${urn}`);
   }
