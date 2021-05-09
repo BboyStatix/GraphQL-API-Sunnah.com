@@ -26,6 +26,7 @@ npm start
 
 - [ ] add `page` and `limit` option to queries
 - [ ] query by language rather than returning both Arabic and English versions
+- [ ] make queries less REST-specific. Currently the queries are pretty much a 1-to-1 mapping of the REST API. This isn't really using the full power of GraphQL.
 
 # Note
 
