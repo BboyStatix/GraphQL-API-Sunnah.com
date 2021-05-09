@@ -22,6 +22,11 @@ To run the app
 npm start
 ```
 
+# TODOS
+
+- [ ] add `page` and `limit` option to queries
+- [ ] query by language rather than returning both Arabic and English versions
+
 # Disclaimer
 
 I am not affiliated with Sunnah.com. This was just something I created over a weekend and thought would be beneficial to app developers by giving them a more declarative way of asking for the data they need.
