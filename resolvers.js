@@ -2,7 +2,14 @@ const resolvers = {
   Query: {
     Collections: async (_, __, { dataSources }) => {
       const response = await dataSources.hadithApi.getCollections();
-      return response.data;
+      const { data, total, limit, previous, next } = response;
+      return {
+        collections: data,
+        total,
+        limit,
+        previous,
+        next,
+      };
     },
     Collection: async (_, { name }, { dataSources }) => {
       return dataSources.hadithApi.getCollection(name);

@@ -36,6 +36,14 @@ const typeDefs = gql`
     totalAvailableHadith: Int
   }
 
+  type CollectionsQuery {
+    collections: [Collection]
+    total: Int
+    limit: Int
+    previous: Int
+    next: Int
+  }
+
   type ChapterDetail {
     lang: String
     chapterNumber: String
@@ -86,7 +94,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    Collections: [Collection]
+    # Collections: [Collection]
+    Collections: CollectionsQuery
     Collection(name: CollectionName!): Collection
     Chapters(collectionName: CollectionName!, bookNumber: Int!): [Chapter]
     getHadithsByCollectionAndBookNumber(
