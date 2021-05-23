@@ -2,6 +2,8 @@
 
 Simple GraphQL layer on top of [Sunnah.com's REST API](https://sunnah.api-docs.io/1.0/getting-started)
 
+Try it out in the [GraphQL Playground](https://sunnah-com-graphql-server.herokuapp.com)!
+
 ![GraphQL Playground demo](demo.gif)
 
 # Getting Started
