@@ -4,7 +4,8 @@
   "description": "Simple GraphQL layer on top of Sunnah.com's REST API",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r dotenv/config index.js"
+    "start": "node -r dotenv/config index.js",
+    "dev": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
